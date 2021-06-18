@@ -6,14 +6,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.projectmp.databinding.FragmentMyPageBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 
 class MyPageFragment : Fragment() {
     var binding: FragmentMyPageBinding?=null
+    var auth: FirebaseAuth?=null
+    var db: DatabaseReference?=null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         binding = FragmentMyPageBinding.inflate(layoutInflater)
+        auth = FirebaseAuth.getInstance()
+        db = FirebaseDatabase.getInstance().getReference("Users")
         return binding!!.root
     }
 
@@ -21,30 +28,29 @@ class MyPageFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val pref = activity?.getSharedPreferences("login", Context.MODE_PRIVATE)
         val id = pref?.getString("id", "")
-        val passwd = pref?.getString("pw", "")
-        if(id==""){
-            binding!!.logoutView.visibility = View.VISIBLE
-            binding!!.loginView.visibility = View.GONE
-        }
-        else{
+        val nickName = pref?.getString("nickname", "")
+        val user = auth!!.currentUser
+        if (user != null) {
+            initView(user.email!!)
             binding!!.logoutView.visibility = View.GONE
             binding!!.loginView.visibility = View.VISIBLE
             binding!!.idText.text = id
-            binding!!.emailText.text = "test1234@konkuk.ac.kr"
-            binding!!.nicknameText.text = passwd
+            binding!!.emailText.text = user.email
+            binding!!.nicknameText.text = nickName
         }
-        val editor = pref?.edit()
+        else {
+            binding!!.logoutView.visibility = View.VISIBLE
+            binding!!.loginView.visibility = View.GONE
+        }
         binding!!.apply {
             loginBtn.setOnClickListener {
                 val intent = Intent(activity, LoginActivity::class.java)
                 startActivity(intent)
             }
             logoutBtn.setOnClickListener {
-                loginView.visibility = View.GONE
-                logoutView.visibility = View.VISIBLE
-                editor?.putString("id", "")
-                editor?.putString("pw", "")
-                editor?.commit()
+                auth?.signOut()
+                binding!!.logoutView.visibility = View.VISIBLE
+                binding!!.loginView.visibility = View.GONE
             }
             nicknameBtn.setOnClickListener {
                 val intent = Intent(activity, ModifyProfileActivity::class.java)
@@ -61,11 +67,41 @@ class MyPageFragment : Fragment() {
                 intent.putExtra("num", 3)
                 startActivity(intent)
             }
+            withdrawalBtn.setOnClickListener {
+                val intent = Intent(activity, ModifyProfileActivity::class.java)
+                intent.putExtra("num", 4)
+                startActivity(intent)
+            }
         }
+    }
+
+    private fun initView(email: String) {
+        val query = db!!.orderByChild("email")!!.equalTo(email)
+        query.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot != null) {
+                    for (userSnapshot in snapshot.children) {
+                        val userInfo = userSnapshot.getValue(User::class.java)
+                        binding!!.idText.text = userInfo?.id
+                        binding!!.emailText.text = userInfo?.email
+                        binding!!.nicknameText.text = userInfo?.nickname
+                    }
+                }
+                else
+                    Toast.makeText(context, "자동 로그인 에러", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(context, "Find Data error", Toast.LENGTH_SHORT).show()
+            }
+
+        })
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null
+        auth = null
+        db = null
     }
 }

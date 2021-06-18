@@ -119,38 +119,48 @@
                 android:id="@+id/newPasswdEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="new password"
+                android:hint="새 비밀번호"
                 android:textSize="18dp"
                 android:padding="10dp"
                 android:ems="20"
                 android:background="@drawable/edittext_background"
-                android:layout_marginBottom="5dp"/>
+                android:layout_marginBottom="5dp"
+                android:inputType="textPassword"/>
             <EditText
                 android:id="@+id/newPasswdAgainEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="new password again"
+                android:hint="새 비밀번호 재입력"
                 android:textSize="18dp"
                 android:padding="10dp"
                 android:ems="20"
-                android:background="@drawable/edittext_background"/>
+                android:background="@drawable/edittext_background"
+                android:inputType="textPassword"/>
         </LinearLayout>
-        <TextView
+        <LinearLayout
+            android:id="@+id/passwdView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="비밀번호"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:padding="5dp"
-            android:layout_marginTop="15dp"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="asdf"
-            android:textSize="18dp"
-            android:padding="10dp"
-            android:background="@drawable/edittext_background"/>
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="비밀번호"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:padding="5dp"
+                android:layout_marginTop="15dp"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="비밀번호"
+                android:textSize="18dp"
+                android:padding="10dp"
+                android:background="@drawable/edittext_background"
+                android:inputType="textPassword"/>
+        </LinearLayout>
         <Button
+            android:id="@+id/confirm"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:text="변경"
