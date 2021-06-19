@@ -9,6 +9,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.projectmp.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
     lateinit var binding: ActivityLoginBinding
@@ -38,6 +42,7 @@ class LoginActivity : AppCompatActivity() {
                     query.addListenerForSingleValueEvent(object : ValueEventListener {
                         override fun onDataChange(snapshot: DataSnapshot) {
                             if (snapshot.getValue(User::class.java) != null) {
+                                showLoadingDialog()
                                 if (snapshot != null) {
                                     for (userSnapshot in snapshot.children) {
                                         val userInfo = userSnapshot.getValue(User::class.java)
@@ -85,6 +90,15 @@ class LoginActivity : AppCompatActivity() {
             else {
                 Toast.makeText(this, "비밀번호가 틀렸습니다", Toast.LENGTH_SHORT).show()
             }
+        }
+    }
+
+    private fun showLoadingDialog() {
+        val dialog = LoadingDialog(this)
+        CoroutineScope(Main).launch {
+            dialog.show()
+            delay(2000)
+            dialog.dismiss()
         }
     }
 }

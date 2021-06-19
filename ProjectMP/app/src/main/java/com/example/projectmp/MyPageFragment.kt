@@ -37,9 +37,6 @@ class MyPageFragment : Fragment() {
             binding!!.idText.text = id
             binding!!.emailText.text = user.email
             binding!!.nicknameText.text = nickName
-            if (user.isEmailVerified) {
-                Toast.makeText(activity, "인증된 유저", Toast.LENGTH_SHORT).show()
-            }
         }
         else {
             binding!!.logoutView.visibility = View.VISIBLE

@@ -34,7 +34,9 @@ class EmailAuthActivity : AppCompatActivity() {
                         Toast.makeText(this, "인증 메일 발송", Toast.LENGTH_SHORT).show()
                     }
                 }
-                binding.notifyText.text = "계정의 이메일 주소로 인증 메일을 발송했습니다.\n만약 메일이 보이지 않다면 재발송 버튼을 눌러주세요."
+                binding.notifyText.text = "계정의 이메일 주소로 인증 메일을 발송했습니다." +
+                        "\n만약 메일이 보이지 않다면 재발송 버튼을 눌러주세요." +
+                        "\n인증 후 로그아웃 및 재 로그인 하시기바랍니다."
             }
             else {
                 binding.notifyText.text = "건대 메일이 아닙니다.\n건대 메일로 변경 후 시도해주시기 바랍니다."

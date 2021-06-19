@@ -9,6 +9,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.projectmp.databinding.ActivitySignUpBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class SignUpActivity : AppCompatActivity() {
     lateinit var binding: ActivitySignUpBinding
@@ -42,8 +46,13 @@ class SignUpActivity : AppCompatActivity() {
                             override fun onDataChange(snapshot: DataSnapshot) {
                                 if (snapshot.getValue(User::class.java) != null)
                                     Toast.makeText(this@SignUpActivity, "계정이 이미 존재 합니다", Toast.LENGTH_SHORT).show()
-                                else
-                                    createUser(emailEdit.text.toString(), passWdEdit.text.toString())
+                                else {
+                                    showLoadingDialog()
+                                    createUser(
+                                        emailEdit.text.toString(),
+                                        passWdEdit.text.toString()
+                                    )
+                                }
                             }
 
                             override fun onCancelled(error: DatabaseError) {
@@ -83,5 +92,14 @@ class SignUpActivity : AppCompatActivity() {
         val user = User(binding.idEdit.text.toString(), "404", binding.nicknameEdit.text.toString(),
             binding.emailEdit.text.toString(), false)
         db.child(binding.idEdit.text.toString()).setValue(user)
+    }
+
+    private fun showLoadingDialog() {
+        val dialog = LoadingDialog(this)
+        CoroutineScope(Dispatchers.Main).launch {
+            dialog.show()
+            delay(2000)
+            dialog.dismiss()
+        }
     }
 }

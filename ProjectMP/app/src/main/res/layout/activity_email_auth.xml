@@ -33,7 +33,7 @@
     <TextView
         android:id="@+id/notifyText"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="110dp"
         android:text="메일 인증 진행"
         android:textSize="17dp"
         android:textColor="@color/black"
