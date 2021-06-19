@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EmailAuthActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="20dp"
+        android:layout_marginBottom="10dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:text="메일 인증"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:layout_gravity="center"/>
+        <ImageButton
+            android:id="@+id/closeBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/ic_baseline_close_24"
+            android:backgroundTint="@color/white"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/notifyText"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="메일 인증 진행"
+        android:textSize="17dp"
+        android:textColor="@color/black"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/sendEmail"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="인증 메일 재발송"
+        android:textSize="20dp"
+        android:backgroundTint="#ff9800"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"/>
+</LinearLayout>

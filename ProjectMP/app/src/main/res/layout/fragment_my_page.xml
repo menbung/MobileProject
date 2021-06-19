@@ -95,6 +95,14 @@
                     android:textColor="@color/black"
                     android:textSize="13dp"
                     android:layout_margin="10dp"/>
+                <TextView
+                    android:id="@+id/emailAuthBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="건대 메일 인증"
+                    android:textColor="@color/black"
+                    android:textSize="13dp"
+                    android:layout_margin="10dp"/>
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/etc"
