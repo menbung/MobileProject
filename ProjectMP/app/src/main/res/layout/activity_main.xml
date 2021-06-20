@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/mybalck">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,9 +22,10 @@
             android:gravity="center"
             android:layout_gravity="center"
             android:layout_weight="6"
-            android:text="Konkuk"
-            android:textColor="@color/g"
-            android:textSize="30dp" />
+            android:text="KonCook"
+            android:textColor="@color/y"
+            android:textSize="30dp"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/SearchBtn"
@@ -31,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:backgroundTint="@color/g"
+            android:backgroundTint="@color/y"
             android:text="검색"
             android:layout_gravity="center"/>
     </LinearLayout>
@@ -50,7 +52,8 @@
             android:gravity="center"
             android:text="오늘의 추천메뉴는 ~"
             android:textSize="35sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/g"/>
 
         <TextView
             android:id="@+id/recomMenu"
@@ -60,7 +63,8 @@
             android:text=""
             android:layout_weight="3"
             android:textSize="100sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/g"/>
 
         <TextView
             android:id="@+id/textView4"
@@ -70,7 +74,8 @@
             android:gravity="center"
             android:text="어때요?"
             android:textSize="35sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/g"/>
     </LinearLayout>
 
     <LinearLayout
@@ -84,32 +89,36 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/g"
-            android:text="홈" />
+            android:backgroundTint="@color/y"
+            android:text="홈"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/WorldcupBtn"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/g"
-            android:text="월드컵" />
+            android:backgroundTint="@color/y"
+            android:text="월드컵"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/ListBtn"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/g"
-            android:text="리스트" />
+            android:backgroundTint="@color/y"
+            android:text="리스트"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/MypageBtn"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/g"
-            android:text="내정보" />
+            android:backgroundTint="@color/y"
+            android:text="내정보"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 

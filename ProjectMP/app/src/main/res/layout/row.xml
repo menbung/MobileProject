@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@drawable/round_background">
+    android:background="@color/mybalck">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -15,7 +15,8 @@
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/round_background">
 
         <TextView
             android:id="@+id/Rname"
@@ -25,14 +26,15 @@
             android:text="TextView"
             android:textAlignment="center"
             android:textSize="24sp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/white"/>
 
         <TextView
             android:id="@+id/rescate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="@color/white"/>
 
         <TextView
             android:id="@+id/Rmenu"
@@ -40,6 +42,6 @@
             android:layout_height="wrap_content"
             android:text="TextView"
             android:textSize="20sp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/white"/>
     </LinearLayout>
 </LinearLayout>

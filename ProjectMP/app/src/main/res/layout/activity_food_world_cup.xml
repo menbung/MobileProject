@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/mybalck"
     tools:context=".FoodWorldCupActivity"
     android:orientation="vertical">
 
@@ -18,6 +19,7 @@
             android:layout_height="100dp"
             android:text="메뉴 이상형 월드컵"
             android:gravity="center"
+            android:textColor="@color/white"
             android:textSize="40dp"
             android:textStyle="bold"/>
         <TextView
@@ -27,13 +29,12 @@
             android:text="64강"
             android:gravity="center"
             android:textSize="40dp"
-            />
+            android:textColor="@color/white"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
-
 
             <Button
                 android:id="@+id/btn1"
@@ -43,7 +44,8 @@
                 android:text="메뉴1"
                 android:gravity="center"
                 android:textSize="30dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:background="@color/g"/>
 
             <Button
                 android:id="@+id/btn2"
@@ -53,7 +55,8 @@
                 android:text="Button"
                 android:gravity="center"
                 android:textSize="30dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:background="@color/g"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -68,32 +71,36 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/g"
-            android:text="홈" />
+            android:backgroundTint="@color/y"
+            android:text="홈"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/WorldcupBtn"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/g"
-            android:text="월드컵" />
+            android:backgroundTint="@color/y"
+            android:text="월드컵"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/ListBtn"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/g"
-            android:text="리스트" />
+            android:backgroundTint="@color/y"
+            android:text="리스트"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/MypageBtn"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/g"
-            android:text="내정보" />
+            android:backgroundTint="@color/y"
+            android:text="내정보"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 </LinearLayout>

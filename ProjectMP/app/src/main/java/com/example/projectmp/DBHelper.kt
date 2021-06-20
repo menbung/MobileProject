@@ -5,6 +5,7 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.graphics.Color
 import android.view.Gravity
 import android.widget.TableRow
 import android.widget.TextView
@@ -64,6 +65,7 @@ class DBHelper(val context: Context) : SQLiteOpenHelper(context, DB_NAME, null, 
                  textView.layoutParams = viewParam
                  textView.text = cursor.getString(i)
                  textView.textSize = 10.0f
+                 textView.setTextColor(Color.WHITE)
                  textView.gravity = Gravity.CENTER
                  row.addView(textView)
              }
