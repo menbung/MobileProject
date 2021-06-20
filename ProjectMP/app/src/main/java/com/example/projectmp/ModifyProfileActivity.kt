@@ -30,8 +30,6 @@ class ModifyProfileActivity : AppCompatActivity() {
     }
 
     private fun init(num: Int){
-        val bar = supportActionBar
-        bar!!.hide()
         auth = FirebaseAuth.getInstance()
         db = FirebaseDatabase.getInstance().getReference("Users")
         pref = getSharedPreferences("login", Context.MODE_PRIVATE)
@@ -117,7 +115,7 @@ class ModifyProfileActivity : AppCompatActivity() {
                             editor.putString("nickname", nicknameEdit.text.toString())
                             editor.commit()
                             Toast.makeText(this@ModifyProfileActivity, "닉네임 변경 완료", Toast.LENGTH_SHORT).show()
-                            val intent = Intent(this@ModifyProfileActivity, MainActivity::class.java)
+                            val intent = Intent(this@ModifyProfileActivity, ProfileActivity::class.java)
                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                             startActivity(intent)
                         }
@@ -186,7 +184,7 @@ class ModifyProfileActivity : AppCompatActivity() {
             if (task.isSuccessful) {
                 db.child(id!!).child("email").setValue(email)
                 Toast.makeText(this@ModifyProfileActivity, "이메일 변경 완료", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this@ModifyProfileActivity, MainActivity::class.java)
+                val intent = Intent(this@ModifyProfileActivity, ProfileActivity::class.java)
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 startActivity(intent)
             } else {

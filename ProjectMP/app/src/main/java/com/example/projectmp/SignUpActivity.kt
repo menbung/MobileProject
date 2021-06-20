@@ -27,8 +27,6 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun init(){
-        val bar = supportActionBar
-        bar!!.hide()
         auth = FirebaseAuth.getInstance()
         db = FirebaseDatabase.getInstance().getReference("Users")
         pref = getSharedPreferences("login", Context.MODE_PRIVATE)
@@ -78,7 +76,7 @@ class SignUpActivity : AppCompatActivity() {
                 editor.putString("id", binding.idEdit.text.toString())
                 editor.putString("nickname", binding.nicknameEdit.text.toString())
                 editor.commit()
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, ProfileActivity::class.java)
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 startActivity(intent)
             }

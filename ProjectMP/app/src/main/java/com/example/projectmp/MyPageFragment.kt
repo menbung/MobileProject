@@ -31,7 +31,7 @@ class MyPageFragment : Fragment() {
         val nickName = pref?.getString("nickname", "")
         val user = auth!!.currentUser
         if (user != null) {
-            initView(user.email!!)
+            //initView(user.email!!)
             binding!!.logoutView.visibility = View.GONE
             binding!!.loginView.visibility = View.VISIBLE
             binding!!.idText.text = id

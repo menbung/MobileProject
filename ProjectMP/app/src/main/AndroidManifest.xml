@@ -8,8 +8,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ProjectMP">
-        <activity android:name=".EmailAuthActivity"></activity>
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".RestaurantDetailActivity"></activity>
+        <activity android:name=".SearchedListActivity" />
+        <activity android:name=".FoodWorldCupActivity" />
+        <activity android:name=".SearchActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".EmailAuthActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".ModifyProfileActivity" />
         <activity android:name=".LoginActivity" />

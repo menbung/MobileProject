@@ -18,8 +18,6 @@ class EmailAuthActivity : AppCompatActivity() {
     }
 
     private fun init() {
-        val bar = supportActionBar
-        bar!!.hide()
         auth = FirebaseAuth.getInstance()
         val user = auth.currentUser
         if (user!!.isEmailVerified) {

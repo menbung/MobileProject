@@ -27,8 +27,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun init() {
-        val bar = supportActionBar
-        bar!!.hide()
         auth = FirebaseAuth.getInstance()
         db = FirebaseDatabase.getInstance().getReference("Users")
         pref = getSharedPreferences("login", Context.MODE_PRIVATE)
